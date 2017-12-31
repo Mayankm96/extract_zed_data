@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="extract_rosbag_zed" pkg="extract_zed_data" type="extract_rosbag_zed"
+    respawn="false"
+    output="screen">
+  </node>
+
+</launch>
