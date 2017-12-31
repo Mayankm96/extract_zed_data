@@ -81,3 +81,7 @@ Reads the messages being published using the zed-ros-wrapper and saves them into
 ## Bugs & Feature Requests
 
 Please report bugs and request features using the [Issue Tracker](https://github.com/Mayankm96/extract_zed_data/issues).
+
+[sensor_msgs/CompressedImage]: http://docs.ros.org/api/sensor_msgs/html/msg/CompressedImage.html
+[sensor_msgs/Image]: http://docs.ros.org/api/sensor_msgs/html/msg/Image.html
+[sensor_msgs/CameraInfo]: http://docs.ros.org/api/sensor_msgs/html/msg/CameraInfo.html
