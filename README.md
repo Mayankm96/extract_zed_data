@@ -4,7 +4,7 @@
 
 This is a ROS package for saving the data published using the [zed-ros-wrapper](https://github.com/stereolabs/zed-ros-wrapper). The package is meant for creating real world datasets using the Zed Camera. It saves the stereo images and depth images along with the respecitive camera parameters into a directory specified by the user.
 
-The `extract_zed_data` package has been tested under [ROS](http://www.ros.org) Kinetic and Ubuntu 16.04. The source code is released under a [BSD 3-Clause license](extract_zed_data/LICENSE).
+The `extract_zed_data` package has been tested under [ROS](http://www.ros.org) Kinetic and Ubuntu 16.04. The source code is released under a [BSD 3-Clause license](LICENSE.md).
 
 **Author: Mayank Mittal  
 Maintainer: Mayank Mittal, mayankm.iitk@gmail.com**
