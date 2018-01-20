@@ -9,6 +9,8 @@
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/CameraInfo.h>
 
+#include <boost/filesystem.hpp>
+
 #include "extract_zed_data/ZedData.hpp"
 
 using namespace message_filters;
