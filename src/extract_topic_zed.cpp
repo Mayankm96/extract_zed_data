@@ -66,10 +66,10 @@ int main(int argc, char** argv)
   // Setup output directory to save dataset
   out_foldername = "./dataset/";
   boost::filesystem::path dir(out_foldername);
-	if(boost::filesystem::create_directory(dir))
+  if(boost::filesystem::create_directory(dir))
   {
-		ROS_INFO("Created folder to save data");
-	}
+        ROS_INFO("Created folder to save data");
+  }
 
   // Use time synchronizer to make sure we get properly synchronized images
   typedef sync_policies::ExactTime<sensor_msgs::CompressedImage, sensor_msgs::CompressedImage, sensor_msgs::Image, sensor_msgs::CameraInfo, sensor_msgs::CameraInfo, sensor_msgs::CameraInfo> RetrieveZedDataPolicy;
