@@ -3,7 +3,8 @@
 
   <node pkg="extract_zed_data" type="extract_topic_zed" name="extract_topic_zed"
     respawn="false"
-    output="screen"
-  />
+    output="screen">
+    <param name="out_foldername" value="/data/dataset/"/>
+</node>
 
 </launch>

@@ -182,10 +182,15 @@ void loadBag(const std::string &bag_filename, const std::string &out_foldername 
 
 int main( int argc, char** argv )
 {
+  //Start ROS ----------------------------------------------------------------
+  ros::init(argc, argv, "extract_rosbag_zed");
+  ros::NodeHandle nh("~");
+
   // rosbag file
   std::string bag_filename, out_foldername;
-  bag_filename = ros::package::getPath("pub_airsim") + "/bag/" + "depth_record_2017-11-21-10-51-39" + ".bag";
-  out_foldername = "./dataset/";
+  // read node paramters
+  nh.param<std::string>("bag_filename", bag_filename);
+  nh.param<std::string>("out_foldername", out_foldername;
 
   boost::filesystem::path dir(out_foldername);
 	if(boost::filesystem::create_directory(dir))

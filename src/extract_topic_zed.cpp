@@ -36,7 +36,11 @@ int main(int argc, char** argv)
 {
   // Initialize node
   ros::init(argc, argv, "extract_topic_zed");
-  ros::NodeHandle nh;
+  ros::NodeHandle nh("~");
+
+  // read node paramters
+  nh.param<std::string>("out_foldername", out_foldername;
+
   // Topic names
   std::string image_ns = "/zed";
   std::string l_cam = image_ns + "/left";
@@ -64,7 +68,6 @@ int main(int argc, char** argv)
   d_info_sub.subscribe(nh, d_cam_info, 1);
 
   // Setup output directory to save dataset
-  out_foldername = "./dataset/";
   boost::filesystem::path dir(out_foldername);
   if(boost::filesystem::create_directory(dir))
   {
