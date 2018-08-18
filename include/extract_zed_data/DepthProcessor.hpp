@@ -15,7 +15,7 @@ class DepthProcessor
     void processDepthData(cv_bridge::CvImagePtr depth_img_ptr);
     cv::Mat returnTrueDepth();
     cv::Mat returnDepthVis();
-    void saveDepthData(const std::string &filename);
+    void saveDepthData(const std::string &filename, bool save_depth_pfm = false);
     void showDepthData();
 };
 

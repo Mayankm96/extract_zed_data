@@ -39,7 +39,7 @@ int main(int argc, char** argv)
   ros::NodeHandle nh("~");
 
   // read node paramters
-  nh.param<std::string>("out_foldername", out_foldername;
+  nh.param<std::string>("out_foldername", out_foldername);
 
   // Topic names
   std::string image_ns = "/zed";

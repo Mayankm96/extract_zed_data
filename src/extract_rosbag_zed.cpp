@@ -23,6 +23,7 @@
 using namespace std;
 
 DepthProcessor zed_depth;
+bool save_depth_pfm;
 
 /*
  *  Reads a bag file comprising of zed camera data and saves the file
@@ -92,7 +93,7 @@ void loadBag(const std::string &bag_filename, const std::string &out_foldername 
           {
             ROS_INFO("Received Left Camera Image");
             left_img_ptr = cv_bridge::toCvCopy(l_img, "bgr8");
-            cv::imwrite(out_foldername + "left_" + frame_name + ".jpeg", left_img_ptr->image);
+            cv::imwrite(out_foldername + "left_" + frame_name + ".jpg", left_img_ptr->image);
           }
           catch (cv_bridge::Exception& e)
           {
@@ -112,7 +113,7 @@ void loadBag(const std::string &bag_filename, const std::string &out_foldername 
           {
             ROS_INFO("Received Right Camera Image");
             right_img_ptr = cv_bridge::toCvCopy(r_img, "bgr8");
-            cv::imwrite(out_foldername + "right_" + frame_name + ".jpeg", right_img_ptr->image);
+            cv::imwrite(out_foldername + "right_" + frame_name + ".jpg", right_img_ptr->image);
           }
           catch (cv_bridge::Exception& e)
           {
@@ -133,7 +134,7 @@ void loadBag(const std::string &bag_filename, const std::string &out_foldername 
             ROS_INFO("Depth Map Received");
             depth_img_ptr = cv_bridge::toCvCopy(d_img);
             zed_depth.processDepthData(depth_img_ptr);
-            zed_depth.saveDepthData(out_foldername + "depth_" + frame_name);
+            zed_depth.saveDepthData(out_foldername + "depth_" + frame_name, save_depth_pfm);
           }
           catch (cv_bridge::Exception& e)
           {
@@ -189,13 +190,18 @@ int main( int argc, char** argv )
   // rosbag file
   std::string bag_filename, out_foldername;
   // read node paramters
-  nh.param<std::string>("bag_filename", bag_filename);
-  nh.param<std::string>("out_foldername", out_foldername;
+  nh.param<std::string>("bag_filename", bag_filename, "/media/mayankm/Data/Fount_Landing/dataset/depth_sync_2017-11-21-10-51-39.bag");
+  nh.param<std::string>("out_foldername", out_foldername, "/mnt/MM_Seagate_BUP/Fount_Landing/dataset/");
+  nh.param<bool>("save_depth_pfm", save_depth_pfm, false);
+
+  ROS_WARN("Reading Bag file: %s", bag_filename.c_str());
+  ROS_WARN("Saving data to folder: %s", out_foldername.c_str());
+  ROS_WARN("Saving depth pfm data: %d", save_depth_pfm);
 
   boost::filesystem::path dir(out_foldername);
 	if(boost::filesystem::create_directory(dir))
   {
-		ROS_INFO("Created folder to save data");
+		ROS_INFO("Created folder %s to save data", out_foldername.c_str());
 	}
 
   loadBag(bag_filename, out_foldername);

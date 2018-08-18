@@ -30,7 +30,7 @@ void ZedData::saveData(uint32_t frame, const std::string &out_foldername = "")
     {
       ROS_INFO("Saved Left Camera Image");
       left_img_ptr = cv_bridge::toCvCopy(image_l, "bgr8");
-      cv::imwrite(out_foldername + "left_" + frame_name + ".jpeg", left_img_ptr->image);
+      cv::imwrite(out_foldername + "left_" + frame_name + ".jpg", left_img_ptr->image);
     }
     catch (cv_bridge::Exception& e)
     {
@@ -46,7 +46,7 @@ void ZedData::saveData(uint32_t frame, const std::string &out_foldername = "")
     {
       ROS_INFO("Received Right Camera Image");
       right_img_ptr = cv_bridge::toCvCopy(image_r, "bgr8");
-      cv::imwrite(out_foldername + "right_" + frame_name + ".jpeg", right_img_ptr->image);
+      cv::imwrite(out_foldername + "right_" + frame_name + ".jpg", right_img_ptr->image);
     }
     catch (cv_bridge::Exception& e)
     {

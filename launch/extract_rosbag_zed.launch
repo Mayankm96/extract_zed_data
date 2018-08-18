@@ -4,8 +4,9 @@
   <node name="extract_rosbag_zed" pkg="extract_zed_data" type="extract_rosbag_zed"
     respawn="false"
     output="screen">
-    <param name="bag_filename" value="/home/mayankm/ais_valada/dataset/depth_sync_2017-11-21-10-51-39.bag"/>
-    <param name="out_foldername" value="/data/dataset/"/>
+    <param name="bag_filename" value="/media/mayankm/Data/Fount_Landing/dataset/depth_sync_2017-11-21-10-51-39.bag"/>
+    <param name="out_foldername" value="/mnt/MM_Seagate_BUP/Fount_Landing/dataset/"/>
+    <param name="save_depth_pfm" value="false"/>
   </node>
 
 </launch>

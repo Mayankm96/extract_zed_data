@@ -53,10 +53,11 @@ cv::Mat DepthProcessor::returnDepthVis()
   return depth_vis_;
 }
 
-void DepthProcessor::saveDepthData(const std::string &filename)
+void DepthProcessor::saveDepthData(const std::string &filename, bool save_pfm)
 {
   cv::imwrite(filename + ".png", depth_vis_);
-  writeFilePFM(filename + ".pfm", depth_raw_, 1/255.0);
+  if(save_pfm)
+    writeFilePFM(filename + ".pfm", depth_raw_, 1/255.0);
 }
 
 void DepthProcessor::showDepthData()
